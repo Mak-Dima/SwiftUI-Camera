@@ -12,11 +12,12 @@ struct MainScreenView: View {
     @State var showCamera: Bool = false
     
     var body: some View {
-        Button("Take a photo") {
-            showCamera = true
-        }
-        .sheet(isPresented: $showCamera) {
-            CameraView(image: $selectedImage)
+        if showCamera {
+            CameraView(image: $selectedImage, showCamera: $showCamera)
+        } else {
+            Button("Take a photo") {
+                showCamera = true
+            }
         }
     }
 }

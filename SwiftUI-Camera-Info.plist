@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>I need your photos now!</string>
 	<key>NSCameraUsageDescription</key>
 	<string>I need your camera now!</string>
 </dict>
