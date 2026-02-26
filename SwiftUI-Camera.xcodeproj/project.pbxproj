@@ -30,9 +30,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		239805B22F4FCB8100844BCF /* SwiftUI-Camera */ = {
+		239805B22F4FCB8100844BCF /* App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "SwiftUI-Camera";
+			path = App;
 			sourceTree = "<group>";
 		};
 		239805C02F4FCB8200844BCF /* SwiftUI-CameraTests */ = {
@@ -43,6 +43,11 @@
 		239805CA2F4FCB8200844BCF /* SwiftUI-CameraUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "SwiftUI-CameraUITests";
+			sourceTree = "<group>";
+		};
+		23A087A52F4FCBD400E2E540 /* Resources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +80,8 @@
 		239805A72F4FCB8100844BCF = {
 			isa = PBXGroup;
 			children = (
-				239805B22F4FCB8100844BCF /* SwiftUI-Camera */,
+				23A087A52F4FCBD400E2E540 /* Resources */,
+				239805B22F4FCB8100844BCF /* App */,
 				239805C02F4FCB8200844BCF /* SwiftUI-CameraTests */,
 				239805CA2F4FCB8200844BCF /* SwiftUI-CameraUITests */,
 				239805B12F4FCB8100844BCF /* Products */,
@@ -108,7 +114,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				239805B22F4FCB8100844BCF /* SwiftUI-Camera */,
+				239805B22F4FCB8100844BCF /* App */,
+				23A087A52F4FCBD400E2E540 /* Resources */,
 			);
 			name = "SwiftUI-Camera";
 			packageProductDependencies = (
@@ -395,6 +402,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y72W45V4W6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -426,6 +434,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y72W45V4W6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

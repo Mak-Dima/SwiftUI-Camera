@@ -1,0 +1,56 @@
+# OS X temporary files
+.DS_Store
+.Trashes
+
+# Xcode User settings
+xcuserdata/
+
+# Build artifacts
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+*.mode2v3
+*.xcstickers (copy of the sticker pack)
+*.xcscheme
+*.stash
+
+# Swift Package Manager
+Packages/
+Package.resolved
+.swiftpm/
+
+# CocoaPods
+# We recommend against adding the Pods directory to your .gitignore.
+# However, if you choose to ignore it:
+# Pods/
+
+# Carthage
+Carthage/Build
+Carthage/Checkouts
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+
+# Generated files
+*.hmap
+*.ipa
+*.dSYM.zip
+*.woa
+*.app
+*.app.dSYM
+*.framework
+*.framework.dSYM
+*.xcarchive
+*.xcarchive.dSYM
+*.xcassets
+*.car
+*.coredata.sql
+*.snapshot
+
+# Project files
+project.xcworkspace
+xcshareddata/
+
