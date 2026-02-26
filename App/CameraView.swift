@@ -12,17 +12,18 @@ import SwiftUI
 public struct CameraView: UIViewControllerRepresentable {
     
     @Binding var image: UIImage?
-    @Binding var showCamera: Bool
+    @Binding var state: ViewState
     @Environment(\.dismiss) private var dismiss
     
-    public init(image: Binding<UIImage?>, showCamera: Binding<Bool>) {
+    public init(image: Binding<UIImage?>, showCamera: Binding<ViewState>) {
         self._image = image
-        self._showCamera = showCamera
+        self._state = showCamera
     }
     
     public func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
+        picker.sourceType = .camera
         return picker
     }
     
@@ -48,17 +49,16 @@ public struct CameraView: UIViewControllerRepresentable {
             if let uiImage = info[.originalImage] as? UIImage {
                 parent.image = uiImage
             }
-            // Dismiss the picker and then the SwiftUI presentation
             picker.dismiss(animated: true) {
                 self.parent.dismiss()
-                self.parent.showCamera = false
+                self.parent.state = .showingImage
             }
         }
         
         public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
             picker.dismiss(animated: true) {
                 self.parent.dismiss()
-                self.parent.showCamera = false
+                self.parent.state = .initial
             }
         }
     }

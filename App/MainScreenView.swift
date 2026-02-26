@@ -7,17 +7,24 @@
 
 import SwiftUI
 
+public enum ViewState {
+    case initial, showingCamera, showingImage
+}
+
 struct MainScreenView: View {
     @State var selectedImage: UIImage? = nil
-    @State var showCamera: Bool = false
+    @State var viewState: ViewState = .initial
     
     var body: some View {
-        if showCamera {
-            CameraView(image: $selectedImage, showCamera: $showCamera)
-        } else {
+        switch self.viewState {
+        case .initial:
             Button("Take a photo") {
-                showCamera = true
+                viewState = .showingCamera
             }
+        case .showingCamera:
+            CameraView(image: $selectedImage, showCamera: $viewState)
+        case .showingImage:
+            Text("Image")
         }
     }
 }
