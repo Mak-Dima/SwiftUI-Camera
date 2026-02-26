@@ -9,10 +9,9 @@ import SwiftUI
 
 @main
 struct SwiftUI_CameraApp: App {
-    @State var selectedImage: UIImage? = nil
     var body: some Scene {
         WindowGroup {
-            CameraView(image: $selectedImage)
+            MainScreenView()
         }
     }
 }

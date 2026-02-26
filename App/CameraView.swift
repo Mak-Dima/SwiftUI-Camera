@@ -10,8 +10,14 @@ import UIKit
 import SwiftUI
 
 public struct CameraView: UIViewControllerRepresentable {
+    public typealias UIViewControllerType = UIImagePickerController
+    
     @Binding var image: UIImage?
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
+    
+    public init(image: Binding<UIImage?>) {
+        self._image = image
+    }
     
     public func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
@@ -39,16 +45,19 @@ public struct CameraView: UIViewControllerRepresentable {
             _ picker: UIImagePickerController,
             didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
         ) {
-                if let uiImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            if let uiImage = info[.originalImage] as? UIImage {
                 parent.image = uiImage
-            } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                parent.image = originalImage
             }
-            parent.presentationMode.wrappedValue.dismiss()
+            // Dismiss the picker and then the SwiftUI presentation
+            picker.dismiss(animated: true) {
+                self.parent.dismiss()
+            }
         }
         
         public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.presentationMode.wrappedValue.dismiss()
+            picker.dismiss(animated: true) {
+                self.parent.dismiss()
+            }
         }
     }
 }
