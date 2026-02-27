@@ -24,7 +24,22 @@ struct MainScreenView: View {
         case .showingCamera:
             CameraView(image: $selectedImage, showCamera: $viewState)
         case .showingImage:
-            Text("Image")
+            if selectedImage != nil {
+                SelectedImageView(
+                    selectedImage: Binding(
+                        get: { selectedImage ?? UIImage() },
+                        set: { newValue in selectedImage = newValue }
+                    ),
+                    state: $viewState
+                )
+            } else {
+                VStack(spacing: 12) {
+                    Text("Image loading failed")
+                    Button("Take a photo") {
+                        viewState = .showingCamera
+                    }
+                }
+            }
         }
     }
 }
@@ -32,3 +47,4 @@ struct MainScreenView: View {
 #Preview {
     MainScreenView()
 }
+
