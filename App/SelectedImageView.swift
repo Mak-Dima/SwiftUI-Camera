@@ -22,7 +22,7 @@ struct SelectedImageView: View {
 
             VStack {
                 Spacer()
-                HStack(alignment: .center, spacing: 80) {
+                HStack(alignment: .center, spacing: 100) {
                     Button("Delete") {
                         selectedImage = UIImage()
                         state = .initial
