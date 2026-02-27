@@ -24,7 +24,7 @@ struct MainScreenView: View {
         case .showingCamera:
             CameraView(image: $selectedImage, showCamera: $viewState)
         case .showingImage:
-            if let selectedImage {
+            if selectedImage != nil {
                 SelectedImageView(selectedImage: Binding($selectedImage)!, state: $viewState)
             } else {
                 VStack(spacing: 12) {

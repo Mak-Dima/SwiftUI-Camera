@@ -28,7 +28,14 @@ struct SelectedImageView: View {
                         state = .initial
                     }
                     Button("Save") {
-                        UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil)
+                        print("Before Task")
+                        Task {
+                            print("Before sleep")
+                            try await Task.sleep(for: .seconds(5))
+                            print("After sleep")
+                            UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil)
+                        }
+                        print("After Task")
                         state = .initial
                     }
                 }
